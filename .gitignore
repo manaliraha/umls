@@ -1,0 +1,16 @@
+# maven build output
+target/
+bin/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IntelliJ files
+*.iml
+.idea/
+
+# Eclipse files
+.classpath
+.project
