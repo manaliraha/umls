@@ -19,10 +19,10 @@
 # created table and index are assigned a separate .idb data file. Users should read the MySQL documentation for 
 # additional information.
 
-MYSQL_HOME=/usr/local
-user=root
-password=idontknow
-db_name=umls
+MYSQL_HOME=<replacewithsqlhome>
+user=<replacewithusername>
+password=<replacewithpassword>
+db_name=<replacewithdbname>
 
 /bin/rm -f mysql.log
 touch mysql.log
