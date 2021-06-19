@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "MRSTY",
     indexes = {
@@ -15,70 +19,27 @@ import javax.persistence.Table;
     })
 public class SemanticTypes implements Serializable {
 
+  //concept unique identifier
   @Column(name = "CUI", nullable = false)
   String cui;
 
+  //Unique identifier of Semantic type
   @Column(name = "TUI", nullable = false)
   String tui;
 
+  //Semantic type tree number
   @Column(name = "STN", nullable = false)
   String stn;
 
+  //Semantic type - string description
   @Column(name = "STY", nullable = false)
   String sty;
 
+  //just unique identifier - not same as ATUI from Definitions
   @Id
   @Column(name = "ATUI", nullable = false)
   String atui;
 
   @Column(name="CVF", nullable = true)
   Integer cvf;
-
-  public String getCui() {
-    return cui;
-  }
-
-  public void setCui(String cui) {
-    this.cui = cui;
-  }
-
-  public String getTui() {
-    return tui;
-  }
-
-  public void setTui(String tui) {
-    this.tui = tui;
-  }
-
-  public String getStn() {
-    return stn;
-  }
-
-  public void setStn(String stn) {
-    this.stn = stn;
-  }
-
-  public String getSty() {
-    return sty;
-  }
-
-  public void setSty(String sty) {
-    this.sty = sty;
-  }
-
-  public String getAtui() {
-    return atui;
-  }
-
-  public void setAtui(String atui) {
-    this.atui = atui;
-  }
-
-  public Integer getCvf() {
-    return cvf;
-  }
-
-  public void setCvf(Integer cvf) {
-    this.cvf = cvf;
-  }
 }

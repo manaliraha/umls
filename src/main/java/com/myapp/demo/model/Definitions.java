@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "MRDEF",
     indexes = {
@@ -16,92 +20,35 @@ import javax.persistence.Table;
     })
 public class Definitions implements Serializable {
 
+  //concept unique identifier
   @Column(name = "CUI", nullable = false)
   String cui;
 
+  //atom unique identifier
   @Column(name = "AUI", nullable = false)
   String aui;
 
+  //Unique identifier for attribute
   @Id
   @Column(name = "ATUI", nullable = false)
   String atui;
 
+  //Source asserted attribute identifier
   @Column(name = "SATUI", nullable = true)
   String satui;
 
+  //Source abbreviation - source is the source vocab - full list is in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/precedence_suppressibility.html
   @Column(name = "SAB", nullable = false)
   String sab;
 
+  //definition
   @Column(name = "DEF", nullable = false)
   String def;
 
+  //N - not suppressed, others - O, E, Y are suppressed
   @Column(name="SUPPRESS", nullable = false)
   String suppress;
 
   @Column(name="CVF", nullable = true)
   Integer cvf;
-
-  public String getCui() {
-    return cui;
-  }
-
-  public void setCui(String cui) {
-    this.cui = cui;
-  }
-
-  public String getAui() {
-    return aui;
-  }
-
-  public void setAui(String aui) {
-    this.aui = aui;
-  }
-
-  public String getAtui() {
-    return atui;
-  }
-
-  public void setAtui(String atui) {
-    this.atui = atui;
-  }
-
-  public String getSatui() {
-    return satui;
-  }
-
-  public void setSatui(String satui) {
-    this.satui = satui;
-  }
-
-  public String getSab() {
-    return sab;
-  }
-
-  public void setSab(String sab) {
-    this.sab = sab;
-  }
-
-  public String getDef() {
-    return def;
-  }
-
-  public void setDef(String def) {
-    this.def = def;
-  }
-
-  public String getSuppress() {
-    return suppress;
-  }
-
-  public void setSuppress(String suppress) {
-    this.suppress = suppress;
-  }
-
-  public Integer getCvf() {
-    return cvf;
-  }
-
-  public void setCvf(Integer cvf) {
-    this.cvf = cvf;
-  }
 }

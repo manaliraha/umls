@@ -1,21 +1,14 @@
 package com.myapp.demo.api;
 
-import com.myapp.demo.interfaces.ConceptsOnly;
-import com.myapp.demo.model.ConceptNames;
-import com.myapp.demo.model.Hierarchy;
-import com.myapp.demo.model.NormStringIndex;
-import com.myapp.demo.model.RelatedConcepts;
-import com.myapp.demo.repository.ConceptNamesRepository;
-import com.myapp.demo.repository.HierarchyRepository;
-import com.myapp.demo.repository.NormStringIndexRepository;
-import com.myapp.demo.repository.RelatedConceptsRepository;
-import java.util.List;
-import java.util.Optional;
+import java.io.Serializable;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -23,21 +16,10 @@ import org.springframework.stereotype.Component;
 @Path("/ping")
 public class Ping {
 
-  @Autowired
-  private ConceptNamesRepository conceptNamesRepository;
-
-  @Autowired
-  private RelatedConceptsRepository relatedConceptsRepository;
-
-  @Autowired
-  private HierarchyRepository hierarchyRepository;
-
-  @Autowired
-  private NormStringIndexRepository normStringIndexRepository;
-
   @GET
+  @Produces(value = MediaType.APPLICATION_JSON)
   public Response ping() {
-    Optional<ConceptNames> item = conceptNamesRepository.findById("A9333108");
+    /*Optional<ConceptNames> item = conceptNamesRepository.findById("A9333108");
     ConceptNames itemExists = item.isPresent() ? item.get() : null;
     String entity = itemExists == null ? "all cool" : itemExists.toString();
 
@@ -75,6 +57,24 @@ public class Ping {
           tik.getId().getSui());
     }
 
-    return Response.status(Response.Status.OK).entity(entity).build();
+    List<Definitions> output7 = definitionsRepository.someQuery("461751000124109");
+    for (Definitions d : output7) {
+      log.info("obtd def: {}", d.getDef());
+    }
+
+    List<ConceptDefinition> output8 = definitionsRepository.someQuery1("461751000124109");
+    for (ConceptDefinition d : output8) {
+      log.info("obtd conceptdef def: {}, cui: {}, atui: {}, aui: {}, sab: {}, satui: {}, scui: {}", d.getDef(),
+          d.getCui(), d.getAtui(), d.getAui(), d.getSab(), d.getSatui(), d.getScui());
+    }*/
+
+    log.info("Ping called");
+    return Response.status(Response.Status.OK).entity(new Status(true)).build();
+  }
+
+  @AllArgsConstructor
+  @Getter
+  class Status implements Serializable {
+    boolean ok;
   }
 }

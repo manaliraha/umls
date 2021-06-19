@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "MRSAT",
     indexes = {
@@ -17,37 +21,48 @@ import javax.persistence.Table;
     })
 public class Attributes implements Serializable {
 
+  //concept unique identifier
   @Column(name = "CUI", nullable = false)
   String cui;
 
+  //Unique identifier for term
   @Column(name = "LUI", nullable = true)
   String lui;
 
+  //Unique identifier for string
   @Column(name = "SUI", nullable = true)
   String sui;
 
+  //Metathesaurus asserted unique identifier
   @Column(name = "METAUI", nullable = true)
   String metaui;
 
+  //identifier to which attribute is attached - can be AUI, AUI, CODE, RUI, SCUI or SDUI
   @Column(name = "STYPE", nullable = false)
   String stype;
 
+  //Unique Identifier or code for string in source
   @Column(name = "CODE", nullable = true)
   String code;
 
+  //Unique identifier for attribute
   @Id
   @Column(name = "ATUI", nullable = false)
   String atui;
 
+  //Source asserted attribute identifier
   @Column(name = "SATUI", nullable = true)
   String satui;
 
+  //Attribute name
   @Column(name = "ATN", nullable = false)
   String atn;
 
+  //Source abbreviation - source is the source vocab - full list is in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/precedence_suppressibility.html
   @Column(name = "SAB", nullable = false)
   String sab;
 
+  //Attribute value
   @Column(name = "ATV", nullable = true)
   String atv;
 
@@ -56,108 +71,4 @@ public class Attributes implements Serializable {
 
   @Column(name="CVF", nullable = true)
   Integer cvf;
-
-  public String getCui() {
-    return cui;
-  }
-
-  public void setCui(String cui) {
-    this.cui = cui;
-  }
-
-  public String getLui() {
-    return lui;
-  }
-
-  public void setLui(String lui) {
-    this.lui = lui;
-  }
-
-  public String getSui() {
-    return sui;
-  }
-
-  public void setSui(String sui) {
-    this.sui = sui;
-  }
-
-  public String getMetaui() {
-    return metaui;
-  }
-
-  public void setMetaui(String metaui) {
-    this.metaui = metaui;
-  }
-
-  public String getStype() {
-    return stype;
-  }
-
-  public void setStype(String stype) {
-    this.stype = stype;
-  }
-
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getAtui() {
-    return atui;
-  }
-
-  public void setAtui(String atui) {
-    this.atui = atui;
-  }
-
-  public String getSatui() {
-    return satui;
-  }
-
-  public void setSatui(String satui) {
-    this.satui = satui;
-  }
-
-  public String getAtn() {
-    return atn;
-  }
-
-  public void setAtn(String atn) {
-    this.atn = atn;
-  }
-
-  public String getSab() {
-    return sab;
-  }
-
-  public void setSab(String sab) {
-    this.sab = sab;
-  }
-
-  public String getAtv() {
-    return atv;
-  }
-
-  public void setAtv(String atv) {
-    this.atv = atv;
-  }
-
-  public String getSuppress() {
-    return suppress;
-  }
-
-  public void setSuppress(String suppress) {
-    this.suppress = suppress;
-  }
-
-  public Integer getCvf() {
-    return cvf;
-  }
-
-  public void setCvf(Integer cvf) {
-    this.cvf = cvf;
-  }
 }
