@@ -7,4 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface HierarchyRepository extends CrudRepository<Hierarchy, String> {
 
   List<Hierarchy> findByCui(String cui);
+
+  List<Hierarchy> findByCuiAndAuiIn(String cui, List<String> auis);
 }

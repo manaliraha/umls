@@ -24,16 +24,21 @@ public class SourceMetadata implements Serializable {
   @Column(name = "RCUI", nullable = true)
   String rcui;
 
+  //Versioned source abbreviation
   @Id
   @Column(name = "VSAB", nullable = false)
   String vsab;
 
+  //Root source abbreviation
+  //this value is used in SAB in other tables
   @Column(name = "RSAB", nullable = false)
   String rsab;
 
+  //Source Official Name
   @Column(name = "SON", nullable = false)
   String son;
 
+  //Source family
   @Column(name = "SF", nullable = false)
   String sf;
 
@@ -58,6 +63,7 @@ public class SourceMetadata implements Serializable {
   @Column(name = "SCC", nullable = true)
   String scc;
 
+  //Source restriction level
   @Column(name = "SRL", nullable = false)
   Integer srl;
 
@@ -76,6 +82,7 @@ public class SourceMetadata implements Serializable {
   @Column(name = "ATNL", nullable = true)
   String atnl;
 
+  //Language of terms
   @Column(name = "LAT", nullable = true)
   String lat;
 
@@ -88,6 +95,7 @@ public class SourceMetadata implements Serializable {
   @Column(name = "SABIN", nullable = false)
   String sabin;
 
+  //Source short name
   @Column(name = "SSN", nullable = false)
   String ssn;
 

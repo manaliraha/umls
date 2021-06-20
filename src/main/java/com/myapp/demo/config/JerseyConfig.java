@@ -1,5 +1,6 @@
 package com.myapp.demo.config;
 
+import com.myapp.demo.filters.RequestContextFilter;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.ws.rs.Path;
@@ -24,6 +25,7 @@ public class JerseyConfig extends ResourceConfig {
       for (final Object o : serviceBeans.values()) {
         register(o);
       }
+      register(RequestContextFilter.class);
     }
   }
 

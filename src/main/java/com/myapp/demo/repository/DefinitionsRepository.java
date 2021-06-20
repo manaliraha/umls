@@ -15,4 +15,6 @@ public interface DefinitionsRepository extends JpaRepository<Definitions, String
   List<ConceptDefinition> someQuery1(String scui);
 
   List<Definitions> findByCui(String cui);
+
+  List<Definitions> findByCuiAndAuiIn(String cui, List<String> auis);
 }
