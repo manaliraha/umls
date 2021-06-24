@@ -1,6 +1,10 @@
 package com.myapp.demo.api;
 
+import gov.nih.nlm.nls.lvg.Api.LuiNormApi;
+import gov.nih.nlm.nls.lvg.Api.NormApi;
 import java.io.Serializable;
+import java.util.Hashtable;
+import java.util.Vector;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,11 +14,33 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import java.io.File;
 
 @Slf4j
 @Component
 @Path("/ping")
 public class Ping {
+
+  @Path("/lala")
+  @GET
+  public Response lala() throws Exception {
+    String configFile = "lvg/data/config/lvg.properties";
+    Hashtable<String, String> properties =
+        new Hashtable<String, String>();
+    properties.put("LVG_DIR", "lvg/");
+
+    LuiNormApi api = new LuiNormApi(configFile, properties);
+    String output = api.Mutate("factorize");
+    log.info("output is {}", output);
+    api.CleanUp();
+
+    NormApi api1 = new NormApi(configFile, properties);
+    Vector<String> output1 = api1.Mutate("left");
+    log.info("output1 obtained is {}", output1);
+    api1.CleanUp();
+
+    return Response.status(Response.Status.OK).entity(output).build();
+  }
 
   @GET
   @Produces(value = MediaType.APPLICATION_JSON)

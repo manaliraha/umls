@@ -16,6 +16,24 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	<repositories>
+		<!--other repositories if any-->
+		<repository>
+			<id>project.local</id>
+			<name>project</name>
+			<url>file://${project.basedir}/repo</url>
+		</repository>
+		<repository>
+			<id>Maven repository</id>
+			<url>https://repo.maven.apache.org/maven2/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,7 +81,27 @@
 			<version>6.8</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>gov.nih.nlm</groupId>
+			<artifactId>lvg</artifactId>
+			<version>2021.0</version>
+			<!--<scope>system</scope>
+			<systemPath>
+				/Users/manaliraha/Downloads/meta/lvg2021/lib/lvg2021api.jar
+			</systemPath>-->
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.5.1</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>67.1</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

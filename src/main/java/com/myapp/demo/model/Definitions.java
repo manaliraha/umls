@@ -37,7 +37,7 @@ public class Definitions implements Serializable {
   @Column(name = "SATUI", nullable = true)
   String satui;
 
-  //Source abbreviation - source is the source vocab - full list is in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/precedence_suppressibility.html
+  //Source abbreviation - source is the source vocab - full list is in MRSAB
   @Column(name = "SAB", nullable = false)
   String sab;
 
@@ -45,7 +45,7 @@ public class Definitions implements Serializable {
   @Column(name = "DEF", nullable = false)
   String def;
 
-  //N - not suppressed, others - O, E, Y are suppressed
+  //N - not suppressed, others - O, E, Y are suppressed (MRDOC)
   @Column(name="SUPPRESS", nullable = false)
   String suppress;
 

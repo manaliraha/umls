@@ -29,11 +29,11 @@ public class ConceptNames implements Serializable {
   @Column(name="CUI", nullable = false)
   String cui;
 
-  //language of terms - values are available in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/abbreviations.html#mrdoc_LAT
+  //language of terms - values are available in MRDOC
   @Column(name="LAT", nullable = false)
   String lat;
 
-  //Term status
+  //Term status - values in MRDOC
   @Column(name="TS", nullable = false)
   String ts;
 
@@ -41,7 +41,7 @@ public class ConceptNames implements Serializable {
   @Column(name="LUI", nullable = false)
   String lui;
 
-  //string type (PF means preferred term) - full list of values in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/abbreviations.html#mrdoc_STT
+  //string type (PF means preferred term) - full list of values in MRDOC
   @Column(name="STT", nullable = false)
   String stt;
 
@@ -71,11 +71,11 @@ public class ConceptNames implements Serializable {
   @Column(name="SDUI", nullable = true)
   String sdui;
 
-  //Source abbreviation - source is the source vocab - full list is in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/precedence_suppressibility.html
+  //Source abbreviation - source is the source vocab - full list is in MRSAB
   @Column(name="SAB", nullable = false)
   String sab;
 
-  //term type in source - full list is in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/abbreviations.html
+  //term type in source - full list is in MRDOC
   @Column(name="TTY", nullable = false)
   String tty;
 
@@ -87,11 +87,11 @@ public class ConceptNames implements Serializable {
   @Column(name="STR", nullable = false)
   String str;
 
-  //Source Restriction Level
+  //Source Restriction Level - full list in MRDOC
   @Column(name="SRL", nullable = false)
   Integer srl;
 
-  //N - not suppressed, others - O, E, Y are suppressed
+  //full list in MRDOC
   @Column(name="SUPPRESS", nullable = false)
   String suppress;
 

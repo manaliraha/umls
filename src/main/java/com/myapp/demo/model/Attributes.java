@@ -37,7 +37,7 @@ public class Attributes implements Serializable {
   @Column(name = "METAUI", nullable = true)
   String metaui;
 
-  //identifier to which attribute is attached - can be AUI, AUI, CODE, RUI, SCUI or SDUI
+  //identifier to which attribute is attached - can be AUI, CODE, RUI, SCUI or SDUI (read from MRDOC)
   @Column(name = "STYPE", nullable = false)
   String stype;
 
@@ -54,11 +54,11 @@ public class Attributes implements Serializable {
   @Column(name = "SATUI", nullable = true)
   String satui;
 
-  //Attribute name
+  //Attribute name - all possible values are in MRDOC
   @Column(name = "ATN", nullable = false)
   String atn;
 
-  //Source abbreviation - source is the source vocab - full list is in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/precedence_suppressibility.html
+  //Source abbreviation - source is the source vocab - full list is in MRSAB
   @Column(name = "SAB", nullable = false)
   String sab;
 

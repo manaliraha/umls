@@ -73,6 +73,7 @@ public class SourceMetadata implements Serializable {
   @Column(name = "CFR", nullable = true)
   Integer cfr;
 
+  //context type for source - list is in MRDOC
   @Column(name = "CXTY", nullable = true)
   String cxty;
 

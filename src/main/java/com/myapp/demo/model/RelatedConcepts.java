@@ -30,12 +30,12 @@ public class RelatedConcepts implements Serializable {
   @Column(name = "AUI1", nullable = true)
   String aui1;
 
-  //identifier to which relation is attached - can be AUI, AUI, CODE, RUI, SCUI or SDUI
+  //identifier to which relation is attached - can be AUI, AUI, CODE, RUI, SCUI or SDUI (MRDOC)
   @Column(name = "STYPE1", nullable = false)
   String stype1;
 
   //Relationship label
-  //All possible values are in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/abbreviations.html
+  //All possible values are in MRDOC
   @Column(name = "REL", nullable = false)
   String rel;
 
@@ -47,12 +47,12 @@ public class RelatedConcepts implements Serializable {
   @Column(name = "AUI2", nullable = true)
   String aui2;
 
-  //identifier to which relation is attached - can be AUI, AUI, CODE, RUI, SCUI or SDUI
+  //identifier to which relation is attached - can be AUI, AUI, CODE, RUI, SCUI or SDUI (MRDOC)
   @Column(name = "STYPE2", nullable = false)
   String stype2;
 
   //Additional Relationship label
-  //relationship attribute - all possible values are in https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/abbreviations.html
+  //relationship attribute - all possible values are in MRDOC
   @Column(name = "RELA", nullable = true)
   String rela;
 
